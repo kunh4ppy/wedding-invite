@@ -1,156 +1,283 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Thiệp cưới — [Tên Cô Dâu] & [Tên Chú Rể]</title>
-  <meta name="description" content="Thân mời: [Tên khách mời] - Lễ cưới ngày ... " />
-  <style>
-    /* Reset + cơ bản */
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Inter, 'Segoe UI', Roboto, sans-serif;line-height:1.4;color:#222;background:#faf7f3}
-    .container{max-width:900px;margin:30px auto;padding:20px}
-    .card{background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.08);overflow:hidden}
-    header{display:grid;grid-template-columns:1fr 120px;gap:20px;padding:28px}
-    .hero{padding:18px 28px}
-    h1{font-family:'Playfair Display', serif;font-size:1.9rem;margin-bottom:6px}
-    .subtitle{color:#666;margin-bottom:12px}
-    .names{font-size:1.15rem;font-weight:600;color:#444}
-    .date{font-weight:700;color:#b65a4a}
-    .countdown{display:flex;gap:10px;margin-top:12px}
-    .countdown div{background:#f7efe9;padding:12px;border-radius:8px;text-align:center;min-width:64px}
-    .section{padding:20px 28px;border-top:1px solid #f0e9e4}
-    .map{width:100%;height:300px;border-radius:10px;overflow:hidden}
-    .rsvp{display:grid;grid-template-columns:1fr 320px;gap:20px}
-    form{display:flex;flex-direction:column;gap:10px}
-    input,textarea,select{padding:10px;border-radius:8px;border:1px solid #e3d7cf}
-    button{background:#b65a4a;color:#fff;padding:12px;border-radius:10px;border:none;cursor:pointer;font-weight:600}
-    .gallery{display:flex;gap:8px;overflow:auto;padding-top:10px}
-    .gallery img{height:100px;border-radius:8px}
-    footer{padding:14px;text-align:center;color:#8c7c73;font-size:.9rem}
-    @media(max-width:840px){
-      header{grid-template-columns:1fr}
-      .rsvp{grid-template-columns:1fr}
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thiệp cưới Quang Trung & Phương Thảo</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #fde8f0;
+    font-family: 'Great Vibes', cursive;
+  }
+
+  /* Phong thư */
+  .envelope-container {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fce4ec;
+    z-index: 10;
+  }
+
+  .envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background: #fff;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #f8bbd0;
+    transform-origin: top;
+    transition: transform 1s ease;
+  }
+
+  .envelope.open .flap {
+    transform: rotateX(-180deg);
+  }
+
+  .open-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 16px;
+    background: #ec407a;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+  /* Nội dung thiệp */
+  .invitation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 2s ease;
+    background: linear-gradient(to bottom right, #f8bbd0, #fff0f5);
+    overflow-y: auto;
+  }
+
+  .invitation.show {
+    opacity: 1;
+  }
+
+  .content {
+    text-align: center;
+    padding: 40px 10px;
+    color: #b0003a;
+  }
+
+  h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 24px;
+  }
+
+  .countdown {
+    font-size: 26px;
+    margin-top: 10px;
+  }
+
+  .gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 20px;
+    margin-top: 20px;
+  }
+
+  .gallery img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+  }
+
+  .gallery img.active {
+    opacity: 1;
+  }
+
+  /* Google map */
+  .map-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .map-container iframe {
+    border: 0;
+    border-radius: 20px;
+    width: 90%;
+    height: 350px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+
+  canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+</style>
 </head>
 <body>
-  <div class="container">
-    <div class="card">
-      <header>
-        <div class="hero">
-          <h1>[Tên Cô Dâu] &amp; [Tên Chú Rể]</h1>
-          <p class="subtitle">Trân trọng kính mời</p>
-          <p class="names">[Tên Khách Mời]</p>
-          <p class="date">Thời gian: <strong id="wedding-date-text">Ngày 01 tháng 10 năm 2025, 18:00</strong></p>
-          <div class="countdown" id="countdown">
-            <div><div id="days">--</div><small>Ngày</small></div>
-            <div><div id="hours">--</div><small>Giờ</small></div>
-            <div><div id="mins">--</div><small>Phút</small></div>
-            <div><div id="secs">--</div><small>Giây</small></div>
-          </div>
-        </div>
-        <div style="padding:18px;">
-          <!-- Ảnh cô dâu/chú rể -->
-          <img src="assets/cover.jpg" alt="Couple" style="width:100%;height:200px;object-fit:cover;border-radius:10px" />
-          <div style="margin-top:10px;text-align:center;color:#555">Địa điểm: <strong id="venue-text">Nhà hàng ABC, Hà Nội</strong></div>
-        </div>
-      </header>
 
-      <div class="section">
-        <h3>Lời mời</h3>
-        <p style="margin-top:8px;color:#444">Chúng tôi — <strong>[Tên Cô Dâu]</strong> &amp; <strong>[Tên Chú Rể]</strong> — trân trọng kính mời quý khách đến dự lễ thành hôn của chúng tôi. Sự hiện diện của quý khách là niềm vinh hạnh lớn.</p>
-      </div>
+<!-- Phong thư mở đầu -->
+<div class="envelope-container">
+  <div class="envelope" id="envelope">
+    <div class="flap"></div>
+    <button class="open-btn" id="openBtn">💖 Mở thiệp</button>
+  </div>
+</div>
 
-      <div class="section">
-        <h3>Bản đồ</h3>
-        <div class="map">
-          <!-- Thay URL iframe Google Maps embed ở dưới -->
-          <iframe id="gmap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119177.62236340714!2d105.75602978986407!3d21.02065100788642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135a9acc56038bf%3A0xfe2bcf18b37652b4!2zTmd1ecOqbiDEkMOsbmggTG9uZyBCacOqbg!5e0!3m2!1svi!2s!4v1762313453929!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>"
-            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-      </div>
+<!-- Nội dung thiệp -->
+<div class="invitation" id="invitation">
+  <canvas id="canvas"></canvas>
+  <div class="content">
+    <h1>Quang Trung & Phương Thảo</h1>
+    <h2>Trân trọng kính mời bạn đến dự lễ thành hôn</h2>
+    <p>📅 Ngày 13/12/2025 - 18:00</p>
+    <p>🏛️ Nhà hàng Nguyên Đình Long Biên</p>
+    <div class="countdown" id="countdown"></div>
 
-      <div class="section">
-        <h3>RSVP</h3>
-        <div class="rsvp">
-          <!-- FORM: mặc định là Netlify Forms (nếu deploy lên Netlify) -->
-          <div>
-            <form name="rsvp" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-              <input type="hidden" name="form-name" value="rsvp" />
-              <input type="hidden" name="honeypot" />
-              <label>Họ & tên</label>
-              <input required name="fullname" placeholder="Nguyễn Văn A" />
-              <label>Số điện thoại</label>
-              <input name="phone" placeholder="0983xxxxxx" />
-              <label>Tham dự?</label>
-              <select name="attend">
-                <option value="Có">Có</option>
-                <option value="Không">Không</option>
-                <option value="Chưa chắc">Chưa chắc</option>
-              </select>
-              <label>Ghi chú</label>
-              <textarea name="note" rows="3" placeholder="Ghi chú (VD: ăn chay, đi muộn...)"></textarea>
-              <button type="submit">Gửi xác nhận</button>
-            </form>
-            <p style="font-size:0.9rem;color:#666;margin-top:10px">Hoặc gửi phản hồi qua Zalo: <strong>0123 456 789</strong></p>
-          </div>
+    <div class="gallery">
+      <img src="assets/02.10 THẢO TRUNG58271.jpg" class="active" alt="">
+      <img src="assets/02.10 THẢO TRUNG58363.jpg" alt="">
+      <img src="assets/02.10 THẢO TRUNG58486.jpg" alt="">
+      <img src="assets/02.10 THẢO TRUNG58645.jpg" alt="">
+    </div>
 
-          <div>
-            <h4>Ảnh</h4>
-            <div class="gallery">
-              <img src="assets/02.10 THẢO TRUNG58271.jpg" alt="">
-              <img src="assets/02.10 THẢO TRUNG58363.jpg" alt="">
-              <img src="assets/02.10 THẢO TRUNG58645.jpg" alt="">
-            </div>
-
-            <h4 style="margin-top:14px">Nhạc nền</h4>
-            <p style="font-size:.9rem;color:#666">Nhấn play để mở nhạc (nhiều trình duyệt chặn tự động bật).</p>
-            <audio controls preload="none">
-              <source src="assets/Lâu Đài Tình Ái.mp3" type="audio/mpeg" />
-              Trình duyệt không hỗ trợ audio.
-            </audio>
-          </div>
-        </div>
-      </div>
-
-      <footer>
-        <div>Trân trọng — [Tên gia đình hai bên]</div>
-      </footer>
+    <!-- Google Map -->
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119177.62236340714!2d105.75602978986407!3d21.02065100788642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135a9acc56038bf%3A0xfe2bcf18b37652b4!2zTmd1ecOqbiDEkMOsbmggTG9uZyBCacOqbg!5e0!3m2!1svi!2s!4v1762331616767!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen=""
+        loading="lazy">
+      </iframe>
     </div>
   </div>
+</div>
+
+<audio id="bgMusic" src="assets/Lâu Đài Tình Ái.mp3"></audio>
 
 <script>
-  // ====== Countdown =========
-  const target = new Date('2025-10-01T18:00:00'); // <-- chỉnh ngày giờ ở đây (YYYY-MM-DDTHH:mm:ss)
-  document.getElementById('wedding-date-text').textContent = target.toLocaleString('vi-VN', { dateStyle:'long', timeStyle:'short' });
-  const cd = () => {
-    const now = new Date();
-    const diff = target - now;
-    if (diff <= 0) {
-      document.getElementById('countdown').innerHTML = '<strong>Sự kiện đã diễn ra</strong>';
-      return;
-    }
-    const days = Math.floor(diff / (1000*60*60*24));
-    const hours = Math.floor((diff / (1000*60*60)) % 24);
-    const mins = Math.floor((diff / (1000*60)) % 60);
-    const secs = Math.floor((diff / 1000) % 60);
-    document.getElementById('days').textContent = days;
-    document.getElementById('hours').textContent = hours;
-    document.getElementById('mins').textContent = mins;
-    document.getElementById('secs').textContent = secs;
-  };
-  setInterval(cd, 1000);
-  cd();
+  const openBtn = document.getElementById('openBtn');
+  const envelope = document.getElementById('envelope');
+  const invitation = document.getElementById('invitation');
+  const music = document.getElementById('bgMusic');
 
-  // ====== Optional: form thank you handling for Netlify forms (prevent redirect) ======
-  const form = document.querySelector('form[name="rsvp"]');
-  if (form) {
-    form.addEventListener('submit', function(e){
-      // let Netlify handle the post; optionally show message after submit via Netlify redirect
-      setTimeout(()=> alert('Cảm ơn! Chúng tôi đã nhận xác nhận của bạn.'), 500);
-    });
+  openBtn.addEventListener('click', () => {
+    envelope.classList.add('open');
+    setTimeout(() => {
+      document.querySelector('.envelope-container').style.display = 'none';
+      invitation.classList.add('show');
+      music.play();
+      startParticles();
+    }, 1200);
+  });
+
+  // Ảnh slider
+  const imgs = document.querySelectorAll('.gallery img');
+  let idx = 0;
+  setInterval(() => {
+    imgs[idx].classList.remove('active');
+    idx = (idx + 1) % imgs.length;
+    imgs[idx].classList.add('active');
+  }, 4000);
+
+  // Countdown
+  const countdown = document.getElementById('countdown');
+  const targetDate = new Date("Dec 13, 2025 18:00:00").getTime();
+  setInterval(() => {
+    const now = new Date().getTime();
+    const dist = targetDate - now;
+    const d = Math.floor(dist / (1000 * 60 * 60 * 24));
+    const h = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000*60*60));
+    const m = Math.floor((dist % (1000*60*60)) / (1000*60));
+    const s = Math.floor((dist % (1000*60)) / 1000);
+    countdown.innerHTML = `Còn ${d} ngày ${h} giờ ${m} phút ${s} giây nữa 💕`;
+  }, 1000);
+
+  // Hiệu ứng tim & pháo sáng
+  function startParticles() {
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    let particles = [];
+
+    function createParticle() {
+      const x = Math.random() * canvas.width;
+      const y = 0;
+      const size = Math.random() * 3 + 1;
+      const speed = Math.random() * 2 + 1;
+      const type = Math.random() > 0.5 ? 'heart' : 'spark';
+      particles.push({ x, y, size, speed, type });
+    }
+
+    function drawParticle(p) {
+      ctx.beginPath();
+      if (p.type === 'heart') {
+        ctx.fillStyle = `rgba(255,105,180,0.7)`;
+        ctx.moveTo(p.x, p.y);
+        ctx.bezierCurveTo(p.x - 3, p.y - 3, p.x - 6, p.y + 2, p.x, p.y + 6);
+        ctx.bezierCurveTo(p.x + 6, p.y + 2, p.x + 3, p.y -3, p.x, p.y);
+      } else {
+        ctx.fillStyle = `rgba(255,255,255,0.8)`;
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      }
+      ctx.fill();
+    }
+
+    function animate() {
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      if (Math.random() < 0.3) createParticle();
+      particles.forEach(p => {
+        p.y += p.speed;
+        drawParticle(p);
+      });
+      particles = particles.filter(p => p.y < canvas.height);
+      requestAnimationFrame(animate);
+    }
+    animate();
   }
 </script>
+
 </body>
 </html>
