@@ -1,283 +1,345 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thiệp cưới Quang Trung & Phương Thảo</title>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-<style>
-  body, html {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background: #fde8f0;
-    font-family: 'Great Vibes', cursive;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Thiệp cưới Quang Trung & Phương Thảo • 13/12/2025</title>
 
-  /* Phong thư */
-  .envelope-container {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #fce4ec;
-    z-index: 10;
-  }
+  <!-- SEO / Social -->
+  <meta name="description" content="Kính mời bạn dự lễ thành hôn của Quang Trung & Phương Thảo, 18:00 • 13/12/2025 • Nhà hàng Nguyên Đình Long Biên." />
+  <meta property="og:title" content="Thiệp cưới Quang Trung & Phương Thảo" />
+  <meta property="og:description" content="Hẹn gặp bạn tại Nhà hàng Nguyên Đình Long Biên, 18:00 • 13/12/2025." />
+  <meta property="og:image" content="assets/cover.jpg" />
+  <meta name="theme-color" content="#3f5f85" />
 
-  .envelope {
-    position: relative;
-    width: 300px;
-    height: 200px;
-    background: #fff;
-    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-    border-radius: 8px;
-    overflow: hidden;
-    transform-style: preserve-3d;
-    perspective: 1000px;
-  }
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-  .flap {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50%;
-    background: #f8bbd0;
-    transform-origin: top;
-    transition: transform 1s ease;
-  }
+  <style>
+    :root{
+      --brand:#3f5f85; --brand-50:#eaf0f6; --rose:#c67a7a;
+      --ink:#1c2430; --muted:#6b7280;
+      --bg:#f6f8fb; --card:#fff;
+      --radius:18px; --shadow:0 12px 28px rgba(14,24,36,.10);
+      --space:clamp(18px,2.6vw,28px); --w:min(1080px,92vw);
+    }
+    @media (prefers-color-scheme:dark){
+      :root{ --bg:#0f1419; --card:#121821; --ink:#eef2f6; --muted:#96a2af; --brand-50:#1b2737 }
+    }
 
-  .envelope.open .flap {
-    transform: rotateX(-180deg);
-  }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
+    img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
+    .container{width:var(--w);margin:auto}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .section{padding:calc(var(--space)*2) 0}
+    .title{font-family:"Playfair Display",serif;font-size:clamp(26px,4.5vw,40px);margin:.2rem 0 .6rem;text-align:center}
+    .sub{color:var(--muted);text-align:center;margin-top:-6px}
 
-  .open-btn {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 8px 16px;
-    background: #ec407a;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 18px;
-  }
+    /* Nav */
+    .nav{position:sticky;top:0;z-index:20;backdrop-filter:saturate(120%) blur(8px);
+      background:color-mix(in oklab,var(--bg) 83%,transparent);
+      border-bottom:1px solid color-mix(in oklab,var(--brand) 12%,transparent)}
+    .nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:10px var(--space)}
+    .logo{font-family:"Playfair Display",serif;font-weight:700}.logo .amp{color:var(--rose)}
+    .nav a.btn{padding:.55rem .9rem;border-radius:999px;border:1px solid #dfe6ee;background:var(--card)}
+    @media (prefers-color-scheme:dark){.nav a.btn{border-color:#28374a}}
 
-  /* Nội dung thiệp */
-  .invitation {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 2s ease;
-    background: linear-gradient(to bottom right, #f8bbd0, #fff0f5);
-    overflow-y: auto;
-  }
+    /* Hero */
+    .hero{min-height:86vh;display:grid;align-items:center;
+      background:
+        linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,.88)),
+        url('assets/hero.jpg') center/cover no-repeat;}
+    .hero .wrap{padding:calc(var(--space)*1.7) var(--space);text-align:center}
+    .tag{display:inline-block;letter-spacing:.14em;text-transform:uppercase;font-weight:600;font-size:.82rem;color:var(--brand);background:#fff;border:1px solid #e6ebf1;padding:.42rem .78rem;border-radius:999px}
+    .couple{font-family:"Playfair Display",serif;font-weight:700;font-size:clamp(38px,6vw,68px);margin:.6rem 0 .2rem}
+    .meta{color:var(--muted);margin:.5rem 0 1.1rem}
+    .btns{display:flex;gap:10px;justify-content:center}
+    .cta{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.25rem;border-radius:999px;background:var(--brand);color:#fff;font-weight:600;box-shadow:var(--shadow)}
+    .cta.secondary{background:#fff;color:var(--brand);border:1px solid #dfe6ee}
+    .count{display:flex;justify-content:center;gap:12px;margin-top:14px}
+    .dd{min-width:88px;padding:12px;text-align:center;background:#fff;border:1px solid #e6ebf1;border-radius:12px}
+    .dd strong{display:block;font-size:22px}.dd span{color:var(--muted);font-size:.82rem}
 
-  .invitation.show {
-    opacity: 1;
-  }
+    /* About */
+    .about{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--space)}
+    .about .photo{border-radius:var(--radius);overflow:hidden}
+    .about .content{padding:clamp(16px,2.2vw,24px);display:flex;flex-direction:column;gap:12px}
+    .quote{font-style:italic;color:var(--muted)}
 
-  .content {
-    text-align: center;
-    padding: 40px 10px;
-    color: #b0003a;
-  }
+    /* Details */
+    .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space)}
+    .pill{display:inline-block;padding:.42rem .72rem;border-radius:999px;background:var(--brand-50);color:var(--brand);font-weight:600;font-size:.9rem}
+    .detail{padding:22px;text-align:center}
+    .detail h3{margin:.34rem 0 .42rem;color:var(--brand);font-size:1.06rem}
 
-  h1 {
-    font-size: 48px;
-    margin-bottom: 10px;
-  }
+    /* Parents */
+    .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space)}
+    .parents .item{padding:26px;text-align:center}
 
-  h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-  }
+    /* Gallery + lightbox */
+    .gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+    .gallery img{border-radius:12px;aspect-ratio:3/4;object-fit:cover;cursor:zoom-in}
+    .gallery img:nth-child(3n){aspect-ratio:1/1}.gallery img:nth-child(5n){aspect-ratio:16/10}
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.82);display:none;align-items:center;justify-content:center;z-index:60}
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:min(92vw,1200px);max-height:86vh;border-radius:12px;box-shadow:0 18px 60px rgba(0,0,0,.5)}
+    .lightbox .close{position:fixed;top:14px;right:16px;background:#fff;border:1px solid #e5e7eb;border-radius:999px;padding:.55rem .8rem;cursor:pointer}
+    .lightbox .caption{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);color:#fff;opacity:.9}
 
-  p {
-    font-size: 24px;
-  }
+    /* RSVP + Map */
+    .rsvp{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--space)}
+    form{display:grid;gap:12px}
+    input,select,textarea{width:100%;padding:14px;border:1px solid #dfe6ee;border-radius:12px;background:#fff;font:inherit}
+    button.btn{border:0;border-radius:12px;padding:14px 18px;font-weight:600;background:var(--brand);color:#fff;cursor:pointer}
+    .note{color:var(--muted);font-size:.95rem}
+    .map iframe{width:100%;height:420px;border:0;border-radius:var(--radius)}
 
-  .countdown {
-    font-size: 26px;
-    margin-top: 10px;
-  }
+    /* Footer & Audio */
+    footer{padding:40px 0 60px;text-align:center;color:var(--muted)}
+    .audio-toggle{position:fixed;right:14px;bottom:14px;z-index:70;background:#fff;border:1px solid #dfe6ee;border-radius:999px;padding:.7rem 1rem;box-shadow:var(--shadow);display:flex;align-items:center;gap:.55rem;cursor:pointer}
 
-  .gallery {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 400px;
-    overflow: hidden;
-    position: relative;
-    border-radius: 20px;
-    margin-top: 20px;
-  }
+    /* Reveal */
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.show{opacity:1;transform:none}
+    @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 
-  .gallery img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-    opacity: 0;
-    transition: opacity 1.5s ease;
-  }
-
-  .gallery img.active {
-    opacity: 1;
-  }
-
-  /* Google map */
-  .map-container {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-  }
-
-  .map-container iframe {
-    border: 0;
-    border-radius: 20px;
-    width: 90%;
-    height: 350px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  }
-
-  canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-  }
-</style>
+    /* Responsive */
+    @media (max-width:980px){
+      .about,.rsvp{grid-template-columns:1fr}
+      .cards3{grid-template-columns:1fr 1fr}
+      .gallery{grid-template-columns:repeat(3,1fr)}
+    }
+    @media (max-width:620px){
+      .cards3{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .dd{min-width:72px}
+    }
+  </style>
 </head>
 <body>
 
-<!-- Phong thư mở đầu -->
-<div class="envelope-container">
-  <div class="envelope" id="envelope">
-    <div class="flap"></div>
-    <button class="open-btn" id="openBtn">💖 Mở thiệp</button>
-  </div>
-</div>
-
-<!-- Nội dung thiệp -->
-<div class="invitation" id="invitation">
-  <canvas id="canvas"></canvas>
-  <div class="content">
-    <h1>Quang Trung & Phương Thảo</h1>
-    <h2>Trân trọng kính mời bạn đến dự lễ thành hôn</h2>
-    <p>📅 Ngày 13/12/2025 - 18:00</p>
-    <p>🏛️ Nhà hàng Nguyên Đình Long Biên</p>
-    <div class="countdown" id="countdown"></div>
-
-    <div class="gallery">
-      <img src="assets/02.10 THẢO TRUNG58271.jpg" class="active" alt="">
-      <img src="assets/02.10 THẢO TRUNG58363.jpg" alt="">
-      <img src="assets/02.10 THẢO TRUNG58486.jpg" alt="">
-      <img src="assets/02.10 THẢO TRUNG58645.jpg" alt="">
-    </div>
-
-    <!-- Google Map -->
-    <div class="map-container">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119177.62236340714!2d105.75602978986407!3d21.02065100788642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135a9acc56038bf%3A0xfe2bcf18b37652b4!2zTmd1ecOqbiDEkMOsbmggTG9uZyBCacOqbg!5e0!3m2!1svi!2s!4v1762331616767!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        allowfullscreen=""
-        loading="lazy">
-      </iframe>
+  <!-- Nav -->
+  <div class="nav">
+    <div class="container">
+      <div class="wrap">
+        <div class="logo">Trung <span class="amp">&amp;</span> Thảo</div>
+        <div style="display:flex;gap:8px">
+          <a class="btn" href="#rsvp">RSVP</a>
+          <a class="btn" href="#map">Bản đồ</a>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
-<audio id="bgMusic" src="assets/Lâu Đài Tình Ái.mp3"></audio>
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <div class="wrap card reveal">
+        <span class="tag">Thiệp cưới</span>
+        <h1 class="couple">Quang Trung <span class="amp">&amp;</span> Phương Thảo</h1>
+        <p class="meta">18:00 • 13/12/2025 • Nhà hàng Nguyên Đình Long Biên</p>
+        <div class="btns">
+          <a class="cta" href="#rsvp">Xác nhận tham dự</a>
+          <a class="cta secondary" href="#map">Chỉ đường</a>
+        </div>
+        <div id="dday" class="count" aria-live="polite"></div>
+      </div>
+    </div>
+  </header>
 
-<script>
-  const openBtn = document.getElementById('openBtn');
-  const envelope = document.getElementById('envelope');
-  const invitation = document.getElementById('invitation');
-  const music = document.getElementById('bgMusic');
+  <!-- About -->
+  <section id="about" class="section">
+    <div class="container about">
+      <div class="photo card reveal">
+        <picture>
+          <!-- Tuỳ chọn webp -->
+          <source srcset="assets/cover.jpg" type="image/webp">
+          <img loading="lazy" src="assets/cover.jpg" alt="Quang Trung &amp; Phương Thảo" />
+        </picture>
+      </div>
+      <div class="content card reveal">
+        <h2 class="title" style="text-align:left;margin-top:0">Quyết định bên nhau trọn đời</h2>
+        <p class="quote">“Cảm ơn vì đã là một phần trong ngày trọng đại của chúng tôi.”</p>
+        <p>Trân trọng kính mời anh/chị/bạn đến dự lễ thành hôn của chúng tôi.</p>
+        <p>Rất mong sự hiện diện của bạn sẽ làm cho buổi tiệc thêm ấm áp và trọn vẹn.</p>
+      </div>
+    </div>
+  </section>
 
-  openBtn.addEventListener('click', () => {
-    envelope.classList.add('open');
-    setTimeout(() => {
-      document.querySelector('.envelope-container').style.display = 'none';
-      invitation.classList.add('show');
-      music.play();
-      startParticles();
-    }, 1200);
-  });
+  <!-- Details -->
+  <section id="details" class="section">
+    <div class="container">
+      <h2 class="title">Thời gian • Địa điểm</h2>
+      <p class="sub">Vui lòng đến sớm 10–15 phút để check-in.</p>
 
-  // Ảnh slider
-  const imgs = document.querySelectorAll('.gallery img');
-  let idx = 0;
-  setInterval(() => {
-    imgs[idx].classList.remove('active');
-    idx = (idx + 1) % imgs.length;
-    imgs[idx].classList.add('active');
-  }, 4000);
+      <div class="cards3" style="margin-top:var(--space)">
+        <div class="card detail reveal">
+          <span class="pill">Lễ cưới</span>
+          <h3>18:00 – 13/12/2025</h3>
+          <p>Đón khách &amp; Khai tiệc</p>
+        </div>
+        <div class="card detail reveal">
+          <span class="pill">Địa điểm</span>
+          <h3>Nhà hàng Nguyên Đình Long Biên</h3>
+          <p>Hà Nội</p>
+        </div>
+        <div class="card detail reveal">
+          <span class="pill">Dress code</span>
+          <h3>Pastel / Trắng</h3>
+          <p>Thanh lịch, thoải mái</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  // Countdown
-  const countdown = document.getElementById('countdown');
-  const targetDate = new Date("Dec 13, 2025 18:00:00").getTime();
-  setInterval(() => {
-    const now = new Date().getTime();
-    const dist = targetDate - now;
-    const d = Math.floor(dist / (1000 * 60 * 60 * 24));
-    const h = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000*60*60));
-    const m = Math.floor((dist % (1000*60*60)) / (1000*60));
-    const s = Math.floor((dist % (1000*60)) / 1000);
-    countdown.innerHTML = `Còn ${d} ngày ${h} giờ ${m} phút ${s} giây nữa 💕`;
-  }, 1000);
+  <!-- Parents -->
+  <section id="parents" class="section parents">
+    <div class="container">
+      <h2 class="title">Gia đình hai bên</h2>
+      <div class="grid2" style="margin-top:var(--space)">
+        <div class="card item reveal">
+          <h3>Nhà gái</h3>
+          <p>Ông ABC • Bà XYZ</p>
+          <p>TP Hà Nội</p>
+        </div>
+        <div class="card item reveal">
+          <h3>Nhà trai</h3>
+          <p>Ông ABC • Bà XYZ</p>
+          <p>TP Hà Nội</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  // Hiệu ứng tim & pháo sáng
-  function startParticles() {
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    let particles = [];
+  <!-- Gallery -->
+  <section id="gallery" class="section">
+    <div class="container">
+      <h2 class="title">Khoảnh khắc của chúng mình</h2>
+      <p class="sub">Chạm vào ảnh để xem lớn.</p>
 
-    function createParticle() {
-      const x = Math.random() * canvas.width;
-      const y = 0;
-      const size = Math.random() * 3 + 1;
-      const speed = Math.random() * 2 + 1;
-      const type = Math.random() > 0.5 ? 'heart' : 'spark';
-      particles.push({ x, y, size, speed, type });
+      <div class="gallery" style="margin-top:var(--space)">
+        <!-- Đổi ảnh theo thư mục của bạn -->
+        <img loading="lazy" src="assets/02.10 THẢO TRUNG58227.jpg" alt="Ảnh cưới 1">
+        <img loading="lazy" src="assets/02.10 THẢO TRUNG58271.jpg" alt="Ảnh cưới 2">
+        <img loading="lazy" src="assets/02.10 THẢO TRUNG58317.jpg" alt="Ảnh cưới 3">
+        <img loading="lazy" src="assets/02.10 THẢO TRUNG58363.jpg" alt="Ảnh cưới 4">
+        <img loading="lazy" src="assets/02.10 THẢO TRUNG58376.jpg" alt="Ảnh cưới 5">
+        <img loading="lazy" src="assets/02.10 THẢO TRUNG58391.jpg" alt="Ảnh cưới 6">
+        <img loading="lazy" src="assets/02.10 THẢO TRUNG58451.jpg" alt="Ảnh cưới 7">
+        <img loading="lazy" src="assets/02.10 THẢO TRUNG58486.jpg" alt="Ảnh cưới 8">
+        <img loading="lazy" src="assets/02.10 THẢO TRUNG58557.jpg" alt="Ảnh cưới 9">
+        <img loading="lazy" src="assets/02.10 THẢO TRUNG58587.jpg" alt="Ảnh cưới 10">
+        <img loading="lazy" src="assets/02.10 THẢO TRUNG58619.jpg" alt="Ảnh cưới 11">
+        <img loading="lazy" src="assets/02.10 THẢO TRUNG58625.jpg" alt="Ảnh cưới 12">
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-modal="true" role="dialog">
+      <button class="close" aria-label="Đóng (Esc)" id="lbClose">✕</button>
+      <img id="lbImg" alt="">
+      <div class="caption" id="lbCap"></div>
+    </div>
+  </section>
+
+  <!-- RSVP + Map -->
+  <section id="rsvp" class="section">
+    <div class="container rsvp">
+      <div class="card reveal" style="padding:24px">
+        <h2 class="title" style="margin-bottom:10px">RSVP • Xác nhận tham dự</h2>
+        <p class="note" style="text-align:center;margin-top:-6px">Vui lòng phản hồi trước 01/12/2025.</p>
+
+        <!-- Muốn gửi về Google Form: đặt action/method và bỏ onsubmit -->
+        <form onsubmit="handleRSVP(event)">
+          <label style="display:none" for="name">Họ và tên</label>
+          <input id="name" name="name" placeholder="Họ và tên *" autocomplete="name" required />
+          <label style="display:none" for="phone">SĐT</label>
+          <input id="phone" name="phone" placeholder="Số điện thoại *" inputmode="tel" autocomplete="tel" pattern="^(0|\+?84)\d{9,10}$" required />
+          <select name="attend" required>
+            <option value="">Bạn có tham dự không? *</option>
+            <option value="yes">Có, mình sẽ đến</option>
+            <option value="no">Xin phép không tham dự</option>
+          </select>
+          <select name="guests" aria-label="Số người đi cùng">
+            <option value="0">Số người đi cùng</option>
+            <option>1</option><option>2</option><option>3</option>
+          </select>
+          <textarea name="note" rows="3" placeholder="Lời nhắn (không bắt buộc)"></textarea>
+          <button class="btn" type="submit">Gửi xác nhận</button>
+          <p class="note" id="rsvpMsg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <div class="card map reveal" id="map" style="padding:16px">
+        <h2 class="title" style="margin-bottom:10px">Chỉ đường</h2>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119177.62236340714!2d105.75602978986407!3d21.02065100788642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135a9acc56038bf%3A0xfe2bcf18b37652b4!2zTmd1ecOqbiDEkMOsbmggTG9uZyBCacOqbg!5e0!3m2!1svi!2s!4v1762331616767!5m2!1svi!2s"
+          loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>Hẹn gặp bạn tại buổi tiệc • Made with ♥ by Trung &amp; Thảo</p>
+      <div id="count" class="count" aria-hidden="false"></div>
+    </div>
+  </footer>
+
+  <!-- Audio -->
+  <audio id="bgm" src="assets/LauDaiTinhAi.mp3" preload="auto" loop></audio>
+  <button class="audio-toggle" id="audioBtn" aria-pressed="false" aria-label="Bật nhạc">
+    <span id="audioIcon">▶</span> <span id="audioText">Bật nhạc</span>
+  </button>
+
+  <script>
+    /* Countdown */
+    const WEDDING_TIME = new Date('2025-12-13T18:00:00+07:00').getTime();
+    const ddayEl = document.getElementById('dday'); const countEl = document.getElementById('count');
+    function renderCountdown(){
+      const now = Date.now(); const dist = Math.max(0, WEDDING_TIME - now);
+      const d = Math.floor(dist/86400000);
+      const h = Math.floor((dist%86400000)/3600000);
+      const m = Math.floor((dist%3600000)/60000);
+      const s = Math.floor((dist%60000)/1000);
+      const html = `
+        <div class="dd"><strong>${d}</strong><span>Ngày</span></div>
+        <div class="dd"><strong>${h}</strong><span>Giờ</span></div>
+        <div class="dd"><strong>${m}</strong><span>Phút</span></div>
+        <div class="dd"><strong>${s}</strong><span>Giây</span></div>`;
+      ddayEl.innerHTML = html; countEl.innerHTML = html;
+    }
+    renderCountdown(); setInterval(renderCountdown, 1000);
+
+    /* Reveal on scroll */
+    const io = new IntersectionObserver((es)=>es.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('show'); io.unobserve(e.target);} }), {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    /* Lightbox */
+    const lb = document.getElementById('lightbox'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap'), lbClose = document.getElementById('lbClose');
+    document.querySelectorAll('.gallery img').forEach(img=>{
+      img.addEventListener('click', ()=>{ lbImg.src = img.currentSrc || img.src; lbImg.alt = img.alt || ''; lbCap.textContent = img.alt || ''; lb.classList.add('open'); });
+    });
+    function closeLB(){ lb.classList.remove('open'); lbImg.src=''; }
+    lb.addEventListener('click', e=>{ if(e.target===lb) closeLB(); });
+    lbClose.addEventListener('click', closeLB);
+    document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeLB(); });
+
+    /* RSVP (demo) */
+    function handleRSVP(e){
+      e.preventDefault();
+      document.getElementById('rsvpMsg').textContent = 'Cảm ơn bạn! Chúng mình đã nhận được phản hồi.';
+      e.target.reset();
     }
 
-    function drawParticle(p) {
-      ctx.beginPath();
-      if (p.type === 'heart') {
-        ctx.fillStyle = `rgba(255,105,180,0.7)`;
-        ctx.moveTo(p.x, p.y);
-        ctx.bezierCurveTo(p.x - 3, p.y - 3, p.x - 6, p.y + 2, p.x, p.y + 6);
-        ctx.bezierCurveTo(p.x + 6, p.y + 2, p.x + 3, p.y -3, p.x, p.y);
-      } else {
-        ctx.fillStyle = `rgba(255,255,255,0.8)`;
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-      }
-      ctx.fill();
-    }
-
-    function animate() {
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      if (Math.random() < 0.3) createParticle();
-      particles.forEach(p => {
-        p.y += p.speed;
-        drawParticle(p);
-      });
-      particles = particles.filter(p => p.y < canvas.height);
-      requestAnimationFrame(animate);
-    }
-    animate();
-  }
-</script>
-
+    /* Audio toggle */
+    const audio = document.getElementById('bgm'); const btn = document.getElementById('audioBtn'); const icon = document.getElementById('audioIcon'); const txt = document.getElementById('audioText');
+    function setState(p){ btn.setAttribute('aria-pressed', p?'true':'false'); icon.textContent = p?'⏸':'▶'; txt.textContent = p?'Tắt nhạc':'Bật nhạc'; btn.setAttribute('aria-label', p?'Tắt nhạc':'Bật nhạc'); }
+    btn.addEventListener('click', async ()=>{ if(audio.paused){ await audio.play().catch(()=>{}); setState(!audio.paused);} else { audio.pause(); setState(false);} });
+    document.addEventListener('click', function once(){ if(audio.paused){ audio.play().then(()=>setState(true)).catch(()=>{}); } document.removeEventListener('click', once); }, {once:true});
+  </script>
 </body>
 </html>
