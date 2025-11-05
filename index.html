@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Thiệp cưới — [Tên Cô Dâu] & [Tên Chú Rể]</title>
+  <meta name="description" content="Thân mời: [Tên khách mời] - Lễ cưới ngày ... " />
+  <style>
+    /* Reset + cơ bản */
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter, 'Segoe UI', Roboto, sans-serif;line-height:1.4;color:#222;background:#faf7f3}
+    .container{max-width:900px;margin:30px auto;padding:20px}
+    .card{background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.08);overflow:hidden}
+    header{display:grid;grid-template-columns:1fr 120px;gap:20px;padding:28px}
+    .hero{padding:18px 28px}
+    h1{font-family:'Playfair Display', serif;font-size:1.9rem;margin-bottom:6px}
+    .subtitle{color:#666;margin-bottom:12px}
+    .names{font-size:1.15rem;font-weight:600;color:#444}
+    .date{font-weight:700;color:#b65a4a}
+    .countdown{display:flex;gap:10px;margin-top:12px}
+    .countdown div{background:#f7efe9;padding:12px;border-radius:8px;text-align:center;min-width:64px}
+    .section{padding:20px 28px;border-top:1px solid #f0e9e4}
+    .map{width:100%;height:300px;border-radius:10px;overflow:hidden}
+    .rsvp{display:grid;grid-template-columns:1fr 320px;gap:20px}
+    form{display:flex;flex-direction:column;gap:10px}
+    input,textarea,select{padding:10px;border-radius:8px;border:1px solid #e3d7cf}
+    button{background:#b65a4a;color:#fff;padding:12px;border-radius:10px;border:none;cursor:pointer;font-weight:600}
+    .gallery{display:flex;gap:8px;overflow:auto;padding-top:10px}
+    .gallery img{height:100px;border-radius:8px}
+    footer{padding:14px;text-align:center;color:#8c7c73;font-size:.9rem}
+    @media(max-width:840px){
+      header{grid-template-columns:1fr}
+      .rsvp{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <header>
+        <div class="hero">
+          <h1>[Tên Cô Dâu] &amp; [Tên Chú Rể]</h1>
+          <p class="subtitle">Trân trọng kính mời</p>
+          <p class="names">[Tên Khách Mời]</p>
+          <p class="date">Thời gian: <strong id="wedding-date-text">Ngày 01 tháng 10 năm 2025, 18:00</strong></p>
+          <div class="countdown" id="countdown">
+            <div><div id="days">--</div><small>Ngày</small></div>
+            <div><div id="hours">--</div><small>Giờ</small></div>
+            <div><div id="mins">--</div><small>Phút</small></div>
+            <div><div id="secs">--</div><small>Giây</small></div>
+          </div>
+        </div>
+        <div style="padding:18px;">
+          <!-- Ảnh cô dâu/chú rể -->
+          <img src="assets/cover.jpg" alt="Couple" style="width:100%;height:200px;object-fit:cover;border-radius:10px" />
+          <div style="margin-top:10px;text-align:center;color:#555">Địa điểm: <strong id="venue-text">Nhà hàng ABC, Hà Nội</strong></div>
+        </div>
+      </header>
+
+      <div class="section">
+        <h3>Lời mời</h3>
+        <p style="margin-top:8px;color:#444">Chúng tôi — <strong>[Tên Cô Dâu]</strong> &amp; <strong>[Tên Chú Rể]</strong> — trân trọng kính mời quý khách đến dự lễ thành hôn của chúng tôi. Sự hiện diện của quý khách là niềm vinh hạnh lớn.</p>
+      </div>
+
+      <div class="section">
+        <h3>Bản đồ</h3>
+        <div class="map">
+          <!-- Thay URL iframe Google Maps embed ở dưới -->
+          <iframe id="gmap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119177.62236340714!2d105.75602978986407!3d21.02065100788642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135a9acc56038bf%3A0xfe2bcf18b37652b4!2zTmd1ecOqbiDEkMOsbmggTG9uZyBCacOqbg!5e0!3m2!1svi!2s!4v1762313453929!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>RSVP</h3>
+        <div class="rsvp">
+          <!-- FORM: mặc định là Netlify Forms (nếu deploy lên Netlify) -->
+          <div>
+            <form name="rsvp" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="rsvp" />
+              <input type="hidden" name="honeypot" />
+              <label>Họ & tên</label>
+              <input required name="fullname" placeholder="Nguyễn Văn A" />
+              <label>Số điện thoại</label>
+              <input name="phone" placeholder="0983xxxxxx" />
+              <label>Tham dự?</label>
+              <select name="attend">
+                <option value="Có">Có</option>
+                <option value="Không">Không</option>
+                <option value="Chưa chắc">Chưa chắc</option>
+              </select>
+              <label>Ghi chú</label>
+              <textarea name="note" rows="3" placeholder="Ghi chú (VD: ăn chay, đi muộn...)"></textarea>
+              <button type="submit">Gửi xác nhận</button>
+            </form>
+            <p style="font-size:0.9rem;color:#666;margin-top:10px">Hoặc gửi phản hồi qua Zalo: <strong>0123 456 789</strong></p>
+          </div>
+
+          <div>
+            <h4>Ảnh</h4>
+            <div class="gallery">
+              <img src="assets/02.10 THẢO TRUNG58271.jpg" alt="">
+              <img src="assets/02.10 THẢO TRUNG58363.jpg" alt="">
+              <img src="assets/02.10 THẢO TRUNG58645.jpg" alt="">
+            </div>
+
+            <h4 style="margin-top:14px">Nhạc nền</h4>
+            <p style="font-size:.9rem;color:#666">Nhấn play để mở nhạc (nhiều trình duyệt chặn tự động bật).</p>
+            <audio controls preload="none">
+              <source src="assets/Lâu Đài Tình Ái.mp3" type="audio/mpeg" />
+              Trình duyệt không hỗ trợ audio.
+            </audio>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div>Trân trọng — [Tên gia đình hai bên]</div>
+      </footer>
+    </div>
+  </div>
+
+<script>
+  // ====== Countdown =========
+  const target = new Date('2025-10-01T18:00:00'); // <-- chỉnh ngày giờ ở đây (YYYY-MM-DDTHH:mm:ss)
+  document.getElementById('wedding-date-text').textContent = target.toLocaleString('vi-VN', { dateStyle:'long', timeStyle:'short' });
+  const cd = () => {
+    const now = new Date();
+    const diff = target - now;
+    if (diff <= 0) {
+      document.getElementById('countdown').innerHTML = '<strong>Sự kiện đã diễn ra</strong>';
+      return;
+    }
+    const days = Math.floor(diff / (1000*60*60*24));
+    const hours = Math.floor((diff / (1000*60*60)) % 24);
+    const mins = Math.floor((diff / (1000*60)) % 60);
+    const secs = Math.floor((diff / 1000) % 60);
+    document.getElementById('days').textContent = days;
+    document.getElementById('hours').textContent = hours;
+    document.getElementById('mins').textContent = mins;
+    document.getElementById('secs').textContent = secs;
+  };
+  setInterval(cd, 1000);
+  cd();
+
+  // ====== Optional: form thank you handling for Netlify forms (prevent redirect) ======
+  const form = document.querySelector('form[name="rsvp"]');
+  if (form) {
+    form.addEventListener('submit', function(e){
+      // let Netlify handle the post; optionally show message after submit via Netlify redirect
+      setTimeout(()=> alert('Cảm ơn! Chúng tôi đã nhận xác nhận của bạn.'), 500);
+    });
+  }
+</script>
+</body>
+</html>
