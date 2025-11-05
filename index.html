@@ -10,75 +10,92 @@
   <meta property="og:title" content="Thiệp cưới Quang Trung & Phương Thảo" />
   <meta property="og:description" content="Hẹn gặp bạn tại Nhà hàng Nguyên Đình Long Biên, 18:00 • 13/12/2025." />
   <meta property="og:image" content="assets/cover.jpg" />
-  <meta name="theme-color" content="#3f5f85" />
+  <meta name="theme-color" content="#6f1d26" />
 
-  <!-- Font -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
+    /* ========== CẦN SỬA NHANH ========== */
     :root{
-      --brand:#3f5f85; --brand-50:#eaf0f6; --rose:#c67a7a;
-      --ink:#1c2430; --muted:#6b7280;
-      --bg:#f6f8fb; --card:#fff;
-      --radius:18px; --shadow:0 12px 28px rgba(14,24,36,.10);
-      --space:clamp(18px,2.6vw,28px); --w:min(1080px,92vw);
+      --brand:#6f1d26;           /* đỏ rượu */
+      --brand-50:#f7edef;
+      --ink:#16202b;
+      --muted:#6b7280;
+      --bg:#faf7f6;
+      --card:#ffffff;
+      --radius:18px;
+      --shadow:0 14px 36px rgba(20,20,20,.10);
+      --space:clamp(18px,2.6vw,28px);
+      --w:min(1080px,92vw);
     }
     @media (prefers-color-scheme:dark){
-      :root{ --bg:#0f1419; --card:#121821; --ink:#eef2f6; --muted:#96a2af; --brand-50:#1b2737 }
+      :root{
+        --bg:#0e1216; --card:#111826; --ink:#eef2f6; --muted:#9aa6b2; --brand-50:#2a1317;
+      }
     }
 
-    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    /* Reset / base */
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
-    img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+
     .container{width:var(--w);margin:auto}
     .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow)}
     .section{padding:calc(var(--space)*2) 0}
     .title{font-family:"Playfair Display",serif;font-size:clamp(26px,4.5vw,40px);margin:.2rem 0 .6rem;text-align:center}
     .sub{color:var(--muted);text-align:center;margin-top:-6px}
 
-    /* Nav */
+    /* NAV */
     .nav{position:sticky;top:0;z-index:20;backdrop-filter:saturate(120%) blur(8px);
-      background:color-mix(in oklab,var(--bg) 83%,transparent);
-      border-bottom:1px solid color-mix(in oklab,var(--brand) 12%,transparent)}
+      background:color-mix(in oklab,var(--bg) 80%,transparent);
+      border-bottom:1px solid color-mix(in oklab,var(--brand) 16%,transparent)}
     .nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:10px var(--space)}
-    .logo{font-family:"Playfair Display",serif;font-weight:700}.logo .amp{color:var(--rose)}
-    .nav a.btn{padding:.55rem .9rem;border-radius:999px;border:1px solid #dfe6ee;background:var(--card)}
+    .logo{font-family:"Playfair Display",serif;font-weight:700}
+    .logo .amp{color:var(--brand)}
+    .nav a.btn{padding:.55rem .9rem;border-radius:999px;border:1px solid #e5e7eb;background:var(--card)}
     @media (prefers-color-scheme:dark){.nav a.btn{border-color:#28374a}}
 
-    /* Hero */
-    .hero{min-height:86vh;display:grid;align-items:center;
-      background:
-        linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,.88)),
-        url('assets/hero.jpg') center/cover no-repeat;}
+    /* HERO */
+    .hero{min-height:86vh;display:grid;align-items:center;background:
+      linear-gradient(180deg,rgba(255,255,255,.66),rgba(255,255,255,.92)),
+      url('assets/cover.jpg') center/cover no-repeat;}
     .hero .wrap{padding:calc(var(--space)*1.7) var(--space);text-align:center}
     .tag{display:inline-block;letter-spacing:.14em;text-transform:uppercase;font-weight:600;font-size:.82rem;color:var(--brand);background:#fff;border:1px solid #e6ebf1;padding:.42rem .78rem;border-radius:999px}
     .couple{font-family:"Playfair Display",serif;font-weight:700;font-size:clamp(38px,6vw,68px);margin:.6rem 0 .2rem}
     .meta{color:var(--muted);margin:.5rem 0 1.1rem}
-    .btns{display:flex;gap:10px;justify-content:center}
+    .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
     .cta{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.25rem;border-radius:999px;background:var(--brand);color:#fff;font-weight:600;box-shadow:var(--shadow)}
-    .cta.secondary{background:#fff;color:var(--brand);border:1px solid #dfe6ee}
-    .count{display:flex;justify-content:center;gap:12px;margin-top:14px}
+    .cta.secondary{background:#fff;color:var(--brand);border:1px solid #e6ebf1}
+    .count{display:flex;justify-content:center;gap:12px;margin-top:14px;flex-wrap:wrap}
     .dd{min-width:88px;padding:12px;text-align:center;background:#fff;border:1px solid #e6ebf1;border-radius:12px}
-    .dd strong{display:block;font-size:22px}.dd span{color:var(--muted);font-size:.82rem}
+    .dd strong{display:block;font-size:22px}
+    .dd span{color:var(--muted);font-size:.82rem}
 
-    /* About */
-    .about{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--space)}
-    .about .photo{border-radius:var(--radius);overflow:hidden}
-    .about .content{padding:clamp(16px,2.2vw,24px);display:flex;flex-direction:column;gap:12px}
-    .quote{font-style:italic;color:var(--muted)}
+    /* CALENDAR CARD */
+    .calendar{display:grid;place-items:center;padding:24px}
+    .stamp{display:inline-block;padding:.42rem .72rem;border-radius:999px;background:var(--brand-50);color:var(--brand);font-weight:700}
+    .mini-cal{margin-top:10px;border:1px dashed color-mix(in oklab,var(--brand) 26%, transparent);padding:12px 16px;border-radius:12px;font-variant-numeric:tabular-nums}
 
-    /* Details */
+    /* DETAILS */
     .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space)}
     .pill{display:inline-block;padding:.42rem .72rem;border-radius:999px;background:var(--brand-50);color:var(--brand);font-weight:600;font-size:.9rem}
     .detail{padding:22px;text-align:center}
     .detail h3{margin:.34rem 0 .42rem;color:var(--brand);font-size:1.06rem}
 
-    /* Parents */
+    /* PARENTS */
     .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space)}
     .parents .item{padding:26px;text-align:center}
 
-    /* Gallery + lightbox */
+    /* TIMELINE */
+    .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space)}
+    .timeline .step{padding:20px;text-align:center;border:1px dashed #e6e6ea;border-radius:14px}
+    .step .t{font-weight:700;color:var(--brand);margin:.2rem 0}
+
+    /* GALLERY */
     .gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
     .gallery img{border-radius:12px;aspect-ratio:3/4;object-fit:cover;cursor:zoom-in}
     .gallery img:nth-child(3n){aspect-ratio:1/1}.gallery img:nth-child(5n){aspect-ratio:16/10}
@@ -88,28 +105,36 @@
     .lightbox .close{position:fixed;top:14px;right:16px;background:#fff;border:1px solid #e5e7eb;border-radius:999px;padding:.55rem .8rem;cursor:pointer}
     .lightbox .caption{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);color:#fff;opacity:.9}
 
-    /* RSVP + Map */
+    /* RSVP + MAP */
     .rsvp{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--space)}
     form{display:grid;gap:12px}
-    input,select,textarea{width:100%;padding:14px;border:1px solid #dfe6ee;border-radius:12px;background:#fff;font:inherit}
-    button.btn{border:0;border-radius:12px;padding:14px 18px;font-weight:600;background:var(--brand);color:#fff;cursor:pointer}
+    input,select,textarea{width:100%;padding:14px;border:1px solid #e3e7ee;border-radius:12px;background:#fff;font:inherit}
+    button.btn{border:0;border-radius:12px;padding:14px 18px;font-weight:700;background:var(--brand);color:#fff;cursor:pointer}
     .note{color:var(--muted);font-size:.95rem}
     .map iframe{width:100%;height:420px;border:0;border-radius:var(--radius)}
 
-    /* Footer & Audio */
-    footer{padding:40px 0 60px;text-align:center;color:var(--muted)}
-    .audio-toggle{position:fixed;right:14px;bottom:14px;z-index:70;background:#fff;border:1px solid #dfe6ee;border-radius:999px;padding:.7rem 1rem;box-shadow:var(--shadow);display:flex;align-items:center;gap:.55rem;cursor:pointer}
+    /* GIFTS */
+    .gifts{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space)}
+    .gift-card{padding:18px;text-align:center}
+    .gift-card h3{margin:.2rem 0 .4rem}
+    .gift-card img{width:100%;max-width:260px;margin:6px auto 0;border-radius:12px;border:1px solid #eaeaec}
 
-    /* Reveal */
+    /* FOOTER & AUDIO */
+    footer{padding:40px 0 60px;text-align:center;color:var(--muted)}
+    .audio-toggle{position:fixed;right:14px;bottom:14px;z-index:70;background:#fff;border:1px solid #e0e6ef;border-radius:999px;padding:.7rem 1rem;box-shadow:var(--shadow);display:flex;align-items:center;gap:.55rem;cursor:pointer}
+
+    /* REVEAL */
     .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
     .reveal.show{opacity:1;transform:none}
     @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 
     /* Responsive */
     @media (max-width:980px){
-      .about,.rsvp{grid-template-columns:1fr}
       .cards3{grid-template-columns:1fr 1fr}
+      .about,.rsvp{grid-template-columns:1fr}
+      .timeline{grid-template-columns:repeat(2,1fr)}
       .gallery{grid-template-columns:repeat(3,1fr)}
+      .gifts{grid-template-columns:1fr}
     }
     @media (max-width:620px){
       .cards3{grid-template-columns:1fr}
@@ -120,7 +145,7 @@
 </head>
 <body>
 
-  <!-- Nav -->
+  <!-- NAV -->
   <div class="nav">
     <div class="container">
       <div class="wrap">
@@ -133,7 +158,7 @@
     </div>
   </div>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <header class="hero">
     <div class="container">
       <div class="wrap card reveal">
@@ -149,31 +174,25 @@
     </div>
   </header>
 
-  <!-- About -->
-  <section id="about" class="section">
-    <div class="container about">
-      <div class="photo card reveal">
-        <picture>
-          <!-- Tuỳ chọn webp -->
-          <source srcset="assets/cover.jpg" type="image/webp">
-          <img loading="lazy" src="assets/cover.jpg" alt="Quang Trung &amp; Phương Thảo" />
-        </picture>
-      </div>
-      <div class="content card reveal">
-        <h2 class="title" style="text-align:left;margin-top:0">Quyết định bên nhau trọn đời</h2>
-        <p class="quote">“Cảm ơn vì đã là một phần trong ngày trọng đại của chúng tôi.”</p>
-        <p>Trân trọng kính mời anh/chị/bạn đến dự lễ thành hôn của chúng tôi.</p>
-        <p>Rất mong sự hiện diện của bạn sẽ làm cho buổi tiệc thêm ấm áp và trọn vẹn.</p>
+  <!-- CALENDAR / LỜI MỜI -->
+  <section class="section">
+    <div class="container">
+      <div class="card calendar reveal" aria-label="Lịch thành hôn">
+        <span class="stamp">Save the Date</span>
+        <h2 class="title" style="margin:6px 0 4px">12 • 13 • 2025</h2>
+        <div class="mini-cal">
+          T7, ngày 13 tháng 12 năm 2025 – 18:00
+        </div>
+        <p class="sub" style="margin-top:12px">Trân trọng kính mời bạn đến chung vui cùng gia đình chúng tôi.</p>
       </div>
     </div>
   </section>
 
-  <!-- Details -->
+  <!-- THỜI GIAN / ĐỊA ĐIỂM -->
   <section id="details" class="section">
     <div class="container">
       <h2 class="title">Thời gian • Địa điểm</h2>
       <p class="sub">Vui lòng đến sớm 10–15 phút để check-in.</p>
-
       <div class="cards3" style="margin-top:var(--space)">
         <div class="card detail reveal">
           <span class="pill">Lễ cưới</span>
@@ -194,33 +213,57 @@
     </div>
   </section>
 
-  <!-- Parents -->
+  <!-- GIA ĐÌNH HAI BÊN -->
   <section id="parents" class="section parents">
     <div class="container">
       <h2 class="title">Gia đình hai bên</h2>
       <div class="grid2" style="margin-top:var(--space)">
         <div class="card item reveal">
           <h3>Nhà gái</h3>
-          <p>Ông ABC • Bà XYZ</p>
+          <p>Ông … • Bà …</p>
           <p>TP Hà Nội</p>
         </div>
         <div class="card item reveal">
           <h3>Nhà trai</h3>
-          <p>Ông ABC • Bà XYZ</p>
+          <p>Ông … • Bà …</p>
           <p>TP Hà Nội</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Gallery -->
+  <!-- TIMELINE -->
+  <section class="section">
+    <div class="container">
+      <h2 class="title">Lịch trình buổi lễ</h2>
+      <div class="timeline" style="margin-top:var(--space)">
+        <div class="card step reveal">
+          <div class="t">17:00</div>
+          <div>Check-in &amp; chụp hình</div>
+        </div>
+        <div class="card step reveal">
+          <div class="t">18:00</div>
+          <div>Đón khách</div>
+        </div>
+        <div class="card step reveal">
+          <div class="t">18:30</div>
+          <div>Nghi lễ • Cắt bánh</div>
+        </div>
+        <div class="card step reveal">
+          <div class="t">19:00</div>
+          <div>Nhập tiệc • Giao lưu</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
   <section id="gallery" class="section">
     <div class="container">
       <h2 class="title">Khoảnh khắc của chúng mình</h2>
       <p class="sub">Chạm vào ảnh để xem lớn.</p>
-
       <div class="gallery" style="margin-top:var(--space)">
-        <!-- Đổi ảnh theo thư mục của bạn -->
+        <!-- dùng album sẵn có -->
         <img loading="lazy" src="assets/02.10 THẢO TRUNG58227.jpg" alt="Ảnh cưới 1">
         <img loading="lazy" src="assets/02.10 THẢO TRUNG58271.jpg" alt="Ảnh cưới 2">
         <img loading="lazy" src="assets/02.10 THẢO TRUNG58317.jpg" alt="Ảnh cưới 3">
@@ -244,19 +287,18 @@
     </div>
   </section>
 
-  <!-- RSVP + Map -->
+  <!-- RSVP + MAP -->
   <section id="rsvp" class="section">
     <div class="container rsvp">
       <div class="card reveal" style="padding:24px">
         <h2 class="title" style="margin-bottom:10px">RSVP • Xác nhận tham dự</h2>
         <p class="note" style="text-align:center;margin-top:-6px">Vui lòng phản hồi trước 01/12/2025.</p>
 
-        <!-- Muốn gửi về Google Form: đặt action/method và bỏ onsubmit -->
+        <!-- DEMO: submit tại chỗ, nếu muốn gửi Google Forms hãy thay action/method và bỏ onsubmit -->
         <form onsubmit="handleRSVP(event)">
-          <label style="display:none" for="name">Họ và tên</label>
-          <input id="name" name="name" placeholder="Họ và tên *" autocomplete="name" required />
-          <label style="display:none" for="phone">SĐT</label>
-          <input id="phone" name="phone" placeholder="Số điện thoại *" inputmode="tel" autocomplete="tel" pattern="^(0|\+?84)\d{9,10}$" required />
+          <input name="name" placeholder="Họ và tên *" autocomplete="name" required />
+          <input name="phone" placeholder="Số điện thoại *" inputmode="tel" autocomplete="tel"
+                 pattern="^(0|\\+?84)\\d{9,10}$" required />
           <select name="attend" required>
             <option value="">Bạn có tham dự không? *</option>
             <option value="yes">Có, mình sẽ đến</option>
@@ -266,7 +308,13 @@
             <option value="0">Số người đi cùng</option>
             <option>1</option><option>2</option><option>3</option>
           </select>
-          <textarea name="note" rows="3" placeholder="Lời nhắn (không bắt buộc)"></textarea>
+
+          <!-- các câu hỏi ngắn như trong mẫu -->
+          <input name="song" placeholder="Bài hát bạn thích (tuỳ chọn)" />
+          <input name="food" placeholder="Bạn có kiêng đồ ăn gì?" />
+          <input name="table" placeholder="Muốn ngồi cùng ai?" />
+          <textarea name="note" rows="3" placeholder="Lời nhắn cho cô dâu & chú rể (không bắt buộc)"></textarea>
+
           <button class="btn" type="submit">Gửi xác nhận</button>
           <p class="note" id="rsvpMsg" role="status" aria-live="polite"></p>
         </form>
@@ -281,7 +329,29 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- GIFTS -->
+  <section class="section">
+    <div class="container">
+      <h2 class="title">Quà tặng gửi đôi trẻ</h2>
+      <p class="sub">Sự hiện diện của bạn là món quà quý giá nhất. Nếu thuận tiện, bạn có thể gửi lời chúc/bỏ phong bì qua QR.</p>
+      <div class="gifts" style="margin-top:var(--space)">
+        <div class="card gift-card reveal">
+          <span class="pill">Cô dâu</span>
+          <h3>Phương Thảo</h3>
+          <img src="assets/qr-bride.png" alt="QR cô dâu (tuỳ chọn)">
+          <p class="note">Ngân hàng/ghi chú… (nếu có)</p>
+        </div>
+        <div class="card gift-card reveal">
+          <span class="pill">Chú rể</span>
+          <h3>Quang Trung</h3>
+          <img src="assets/qr-groom.png" alt="QR chú rể (tuỳ chọn)">
+          <p class="note">Ngân hàng/ghi chú… (nếu có)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
     <div class="container">
       <p>Hẹn gặp bạn tại buổi tiệc • Made with ♥ by Trung &amp; Thảo</p>
@@ -289,18 +359,22 @@
     </div>
   </footer>
 
-  <!-- Audio -->
+  <!-- AUDIO -->
   <audio id="bgm" src="assets/LauDaiTinhAi.mp3" preload="auto" loop></audio>
   <button class="audio-toggle" id="audioBtn" aria-pressed="false" aria-label="Bật nhạc">
-    <span id="audioIcon">▶</span> <span id="audioText">Bật nhạc</span>
+    <span id="audioIcon">▶</span>
+    <span id="audioText">Bật nhạc</span>
   </button>
 
   <script>
-    /* Countdown */
+    /* ========== COUNTDOWN ========== */
     const WEDDING_TIME = new Date('2025-12-13T18:00:00+07:00').getTime();
-    const ddayEl = document.getElementById('dday'); const countEl = document.getElementById('count');
+    const ddayEl = document.getElementById('dday');
+    const countEl = document.getElementById('count');
+
     function renderCountdown(){
-      const now = Date.now(); const dist = Math.max(0, WEDDING_TIME - now);
+      const now = Date.now();
+      const dist = Math.max(0, WEDDING_TIME - now);
       const d = Math.floor(dist/86400000);
       const h = Math.floor((dist%86400000)/3600000);
       const m = Math.floor((dist%3600000)/60000);
@@ -310,36 +384,62 @@
         <div class="dd"><strong>${h}</strong><span>Giờ</span></div>
         <div class="dd"><strong>${m}</strong><span>Phút</span></div>
         <div class="dd"><strong>${s}</strong><span>Giây</span></div>`;
-      ddayEl.innerHTML = html; countEl.innerHTML = html;
+      ddayEl.innerHTML = html;
+      countEl.innerHTML = html;
     }
-    renderCountdown(); setInterval(renderCountdown, 1000);
+    renderCountdown();
+    setInterval(renderCountdown, 1000);
 
-    /* Reveal on scroll */
-    const io = new IntersectionObserver((es)=>es.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('show'); io.unobserve(e.target);} }), {threshold:.12});
+    /* REVEAL */
+    const io = new IntersectionObserver((es)=>es.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('show'); io.unobserve(e.target);}
+    }), {threshold:.12});
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-    /* Lightbox */
-    const lb = document.getElementById('lightbox'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap'), lbClose = document.getElementById('lbClose');
+    /* LIGHTBOX */
+    const lb = document.getElementById('lightbox'),
+          lbImg = document.getElementById('lbImg'),
+          lbCap = document.getElementById('lbCap'),
+          lbClose = document.getElementById('lbClose');
     document.querySelectorAll('.gallery img').forEach(img=>{
-      img.addEventListener('click', ()=>{ lbImg.src = img.currentSrc || img.src; lbImg.alt = img.alt || ''; lbCap.textContent = img.alt || ''; lb.classList.add('open'); });
+      img.addEventListener('click', ()=>{
+        lbImg.src = img.currentSrc || img.src;
+        lbImg.alt = img.alt || '';
+        lbCap.textContent = img.alt || '';
+        lb.classList.add('open');
+      });
     });
     function closeLB(){ lb.classList.remove('open'); lbImg.src=''; }
     lb.addEventListener('click', e=>{ if(e.target===lb) closeLB(); });
     lbClose.addEventListener('click', closeLB);
     document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeLB(); });
 
-    /* RSVP (demo) */
+    /* RSVP DEMO */
     function handleRSVP(e){
       e.preventDefault();
       document.getElementById('rsvpMsg').textContent = 'Cảm ơn bạn! Chúng mình đã nhận được phản hồi.';
       e.target.reset();
     }
 
-    /* Audio toggle */
-    const audio = document.getElementById('bgm'); const btn = document.getElementById('audioBtn'); const icon = document.getElementById('audioIcon'); const txt = document.getElementById('audioText');
-    function setState(p){ btn.setAttribute('aria-pressed', p?'true':'false'); icon.textContent = p?'⏸':'▶'; txt.textContent = p?'Tắt nhạc':'Bật nhạc'; btn.setAttribute('aria-label', p?'Tắt nhạc':'Bật nhạc'); }
-    btn.addEventListener('click', async ()=>{ if(audio.paused){ await audio.play().catch(()=>{}); setState(!audio.paused);} else { audio.pause(); setState(false);} });
-    document.addEventListener('click', function once(){ if(audio.paused){ audio.play().then(()=>setState(true)).catch(()=>{}); } document.removeEventListener('click', once); }, {once:true});
+    /* AUDIO TOGGLE (tự phát sau lần click đầu) */
+    const audio = document.getElementById('bgm');
+    const btn = document.getElementById('audioBtn');
+    const icon = document.getElementById('audioIcon');
+    const txt = document.getElementById('audioText');
+    function setState(p){
+      btn.setAttribute('aria-pressed', p?'true':'false');
+      icon.textContent = p?'⏸':'▶';
+      txt.textContent = p?'Tắt nhạc':'Bật nhạc';
+      btn.setAttribute('aria-label', p?'Tắt nhạc':'Bật nhạc');
+    }
+    btn.addEventListener('click', async ()=>{
+      if(audio.paused){ await audio.play().catch(()=>{}); setState(!audio.paused);}
+      else{ audio.pause(); setState(false); }
+    });
+    document.addEventListener('click', function once(){
+      if(audio.paused){ audio.play().then(()=>setState(true)).catch(()=>{}); }
+      document.removeEventListener('click', once);
+    }, {once:true});
   </script>
 </body>
 </html>
