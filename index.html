@@ -11,7 +11,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
 
   <style>
-    /* ====== Theme (navy + paper) ====== */
     :root{
       --navy:#243a53;
       --navy-600:#2d4a74;
@@ -39,9 +38,8 @@
     .container{width:var(--w);margin:auto}
     .col{width:var(--col);margin:auto}
     .card{background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .section{padding:40px 0}
 
-    /* ====== HERO (full-width cover với tên góc trái chân ảnh) ====== */
+    /* ===== HERO ===== */
     .hero{
       position:relative;
       display:grid;
@@ -61,13 +59,10 @@
       );
       z-index:0;
     }
-    /* fade chân ảnh xuống nền giấy */
     .hero::before{
       content:"";
       position:absolute;
-      left:0;
-      right:0;
-      bottom:-1px;
+      left:0;right:0;bottom:-1px;
       height:36vh;
       background:linear-gradient(
         0deg,
@@ -90,7 +85,6 @@
       justify-content:flex-end;
     }
 
-    /* Hero name stack kiểu Long & Ngân */
     @keyframes fadeUp{
       from{opacity:0;transform:translateY(14px)}
       to{opacity:1;transform:none}
@@ -121,7 +115,6 @@
       left:6vw;
       bottom:7vh;
     }
-
     @media (max-width:620px){
       .nameStack--hero{left:6vw;bottom:8vh}
       .nameStack .top,
@@ -129,7 +122,7 @@
       .nameStack .amp{font-size:clamp(26px,7.2vw,48px)}
     }
 
-    /* ====== Strip: lời mở + polaroid nhỏ ====== */
+    /* ===== Strip invite ===== */
     .strip{
       background:linear-gradient(#fff,#fff),url('assets/paper-texture.png');
       background-blend-mode:overlay;
@@ -179,7 +172,7 @@
       font-size:.78rem;
     }
 
-    /* ====== Tháng 12 + mini calendar ====== */
+    /* ===== Month bar ===== */
     .month{
       background:var(--navy);
       color:#e7eef7;
@@ -206,7 +199,7 @@
       margin-top:8px;
     }
 
-    /* ====== Khối formal invite giữa trang ====== */
+    /* ===== Formal invite block ===== */
     .formal{
       background:linear-gradient(#fff,#fff),url('assets/paper-texture.png');
       background-blend-mode:overlay;
@@ -322,7 +315,7 @@
       font-size:.86rem;
     }
 
-    /* ====== Ảnh lớn giữa ====== */
+    /* ===== Big photo ===== */
     .fullphoto{
       width:var(--col);
       margin:18px auto;
@@ -331,7 +324,7 @@
       box-shadow:var(--shadow);
     }
 
-    /* ====== Timeline ====== */
+    /* ===== Timeline ===== */
     .timeline-strip{
       width:var(--col);
       margin:0 auto;
@@ -363,13 +356,13 @@
     .step .desc strong{color:var(--navy)}
     .step .desc small{color:var(--muted)}
 
-    /* ====== Wave divider ====== */
+    /* ===== Wave divider ===== */
     .divider{
       width:var(--col);
       margin:12px auto 0;
     }
 
-    /* ====== Our memories (navy block) ====== */
+    /* ===== Our memories ===== */
     .mem{
       width:var(--col);
       margin:0 auto;
@@ -396,11 +389,9 @@
       aspect-ratio:3/4;
       object-fit:cover;
     }
-    .mem-grid img:nth-child(3n){
-      aspect-ratio:1/1;
-    }
+    .mem-grid img:nth-child(3n){aspect-ratio:1/1}
 
-    /* ====== RSVP (Netlify form) + countdown ====== */
+    /* ===== RSVP + countdown ===== */
     .rsvp{
       width:var(--col);
       margin:18px auto;
@@ -467,16 +458,10 @@
       padding:10px;
       text-align:center;
     }
-    .box strong{
-      display:block;
-      font-size:22px;
-    }
-    .box span{
-      font-size:.85rem;
-      color:var(--muted);
-    }
+    .box strong{display:block;font-size:22px}
+    .box span{font-size:.85rem;color:var(--muted)}
 
-    /* ====== RSVP Popup ====== */
+    /* Popup RSVP */
     .rsvp-popup{
       position:fixed;
       inset:0;
@@ -517,14 +502,12 @@
       cursor:pointer;
     }
 
-    /* ====== Map ====== */
+    /* Map */
     .map{
       width:var(--col);
       margin:10px auto 0;
     }
-    .map .card{
-      padding:14px;
-    }
+    .map .card{padding:14px}
     .map h2{
       font-family:"Playfair Display",serif;
       color:var(--navy);
@@ -576,7 +559,7 @@
     </div>
   </header>
 
-  <!-- Strip: lời mở + polaroid -->
+  <!-- Strip -->
   <section class="strip">
     <div class="inner">
       <div>
@@ -587,12 +570,12 @@
         <div class="polaroid">
           <img src="assets/02.10 THẢO TRUNG58557.jpg" alt="Ảnh cưới">
         </div>
-        <span class="badge">Swipe &amp; Share</span>
+        <span class="badge">Click/Swipe</span>
       </div>
     </div>
   </section>
 
-  <!-- Tháng 12 + mini-calendar -->
+  <!-- Month -->
   <section class="month">
     <div class="inner">
       <h3>Tháng 12</h3>
@@ -609,12 +592,8 @@
       <h2 class="big-names">Quang Trung<br/>Phương Thảo</h2>
 
       <div class="two-polaroids">
-        <div class="pola">
-          <img src="assets/02.10 THẢO TRUNG58271.jpg" alt="Chú rể">
-        </div>
-        <div class="pola">
-          <img src="assets/02.10 THẢO TRUNG58625.jpg" alt="Cô dâu">
-        </div>
+        <div class="pola"><img src="assets/02.10 THẢO TRUNG58271.jpg" alt="Chú rể"></div>
+        <div class="pola"><img src="assets/02.10 THẢO TRUNG58625.jpg" alt="Cô dâu"></div>
       </div>
 
       <div class="cols">
@@ -655,8 +634,7 @@
       </div>
 
       <p class="location">
-        <span class="place">Nhà hàng Nguyên Đình Long Biên</span><br/>
-        Hà Nội
+        <span class="place">Nhà hàng Nguyên Đình Long Biên</span><br/>Hà Nội
       </p>
       <p class="center" style="margin:10px 0 0">
         <a href="#map" class="btn">Xem chỉ đường</a>
@@ -664,7 +642,7 @@
     </div>
   </section>
 
-  <!-- Ảnh lớn -->
+  <!-- Big photo -->
   <figure class="fullphoto">
     <img src="assets/02.10 THẢO TRUNG58391.jpg" alt="Ảnh cưới ngoài trời">
   </figure>
@@ -727,7 +705,7 @@
     </div>
   </section>
 
-  <!-- RSVP + countdown (Netlify + popup) -->
+  <!-- RSVP -->
   <section class="rsvp" id="rsvp">
     <h2>Hãy gửi lời nhắn / RSVP</h2>
     <p class="sub">Vui lòng phản hồi trước 01/12/2025.</p>
@@ -739,8 +717,13 @@
       </p>
 
       <input name="name" placeholder="Quý khách" required />
-      <input name="phone" placeholder="Số điện thoại" inputmode="tel"
-             pattern="^(0|\\+?84)\\d{9,10}$" />
+
+      <input
+        name="phone"
+        placeholder="Số điện thoại"
+        inputmode="tel"
+        pattern="^[0-9+]{8,15}$"
+      />
 
       <select name="attend" required>
         <option value="">Bạn có tham dự không?</option>
@@ -794,10 +777,9 @@
   </footer>
 
   <script>
-    // ===== Countdown =====
+    // Countdown
     const T = new Date('2025-12-13T18:00:00+07:00').getTime();
     const ddEl = document.getElementById('dd');
-
     function tick(){
       const now = Date.now();
       const dist = Math.max(0, T - now);
@@ -813,24 +795,26 @@
       `;
     }
     tick();
-    setInterval(tick, 1000);
+    setInterval(tick,1000);
 
-    // ===== Netlify RSVP + popup =====
+    // Helper: encode FormData -> x-www-form-urlencoded
+    function encode(formData){
+      return new URLSearchParams(formData).toString();
+    }
+
+    // Netlify RSVP + popup
     const form = document.getElementById('rsvpForm');
     const popup = document.getElementById('rsvpPopup');
     const popupClose = document.getElementById('rsvpPopupClose');
 
-    function encode(data){
-      return new URLSearchParams(data).toString();
-    }
-
     form.addEventListener('submit', function(e){
       e.preventDefault();
-      const formData = new FormData(form);
+      const data = new FormData(form);
+
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode(formData)
+        body: encode(data)
       })
       .then(() => {
         form.reset();
@@ -844,9 +828,8 @@
     popupClose.addEventListener('click', () => {
       popup.classList.remove('show');
     });
-
     popup.addEventListener('click', (e) => {
-      if (e.target === popup) popup.classList.remove('show');
+      if(e.target === popup) popup.classList.remove('show');
     });
   </script>
 </body>
